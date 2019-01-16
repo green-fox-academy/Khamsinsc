@@ -5,4 +5,3 @@ w01d03
 [git-lesson repo fork](https://github.com/Khamsinsc/git-lesson-repository.git)
 
 [Cherry on the cake website](https://github.com/Khamsinsc/khamsinsc.github.io.git)
-
