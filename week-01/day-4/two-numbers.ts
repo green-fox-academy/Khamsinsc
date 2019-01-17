@@ -12,10 +12,10 @@
 
 // Print the reminder of 22 divided by 13
 
-console.log("This is a program that prints 'the result of' operations on two numbers")
+console.log("This is a program that prints 'the result of' operations on two numbers");
 
-console.log(13+22)
-console.log(22-13)
-console.log(22*13)
-console.log(22/13)
-console.log(22%13)
+console.log(13+22);
+console.log(22-13);
+console.log(22*13);
+console.log(22/13);
+console.log(22%13);

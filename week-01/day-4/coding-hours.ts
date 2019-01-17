@@ -11,10 +11,10 @@
 
 
 var possibleCdHours = [17*5*6, (17*5-1)*6, (17*5-2)*6, (17*5-3)*6, (17*5-4)*6, (17*5-5)*6];
-var maxCdHours = Math.max (17*5*6, (17*5-1)*6, (17*5-2)*6, (17*5-3)*6, (17*5-4)*6, (17*5-5)*6);
+var maxCdHours = Math.max (...possibleCdHours);
 var minCdHours = Math.min(17*5*6, (17*5-1)*6, (17*5-2)*6, (17*5-3)*6, (17*5-4)*6, (17*5-5)*6);
 var wkcdHours = 5*6;
 
 console.log("Not counting the national holidays, because I cba, an attendance spents from "+minCdHours+" hours to "+maxCdHours+"." );
 
-console.log("If the average work hours weekly is 52, discounting the effects of national holidays and those in absent, the percentage of the coding hours in the semester is "+Math.round(wkcdHours/52*100)+"%.")
+console.log("If the average work hours weekly is 52, discounting the effects of national holidays and those in absent, the percentage of the coding hours in the semester is "+Math.round(wkcdHours/52*100)+"%.");

@@ -6,6 +6,6 @@
 // Hello, Mary!
 // Hello, Joe!
 var cmNames=["Max", "Denes", "Attila"];
-console.log(cmNames[0])
-console.log(cmNames[1])
-console.log(cmNames[2])
+console.log(cmNames[0]);
+console.log(cmNames[1]);
+console.log(cmNames[2]);
