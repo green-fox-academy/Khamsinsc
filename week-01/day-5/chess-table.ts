@@ -16,7 +16,7 @@ let wBlock:any = "W";
 let bBlock:any = "B";
 let wbBlock:any= wBlock+bBlock;
 //let evenLineNumber: number = 8;
-let lineNumber: number = 8;
+let lineNumber: number = 11;
 let bigMovingBlocke: any ;
 let leftoverBlock: any = bBlock;
 
@@ -25,8 +25,6 @@ if (lineNumber % 2==0) {
 } else { 
     bigMovingBlocke = wbBlock.repeat((lineNumber-1)/2);
 }
-
-
 
 for (let currLine = 1;  currLine<=lineNumber ; currLine++){
     
