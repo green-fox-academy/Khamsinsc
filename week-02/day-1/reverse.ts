@@ -13,6 +13,7 @@ let tempArray = [];
 for (let index = 0; index < numList.length; index++) {
     tempArray[index]=numList[numList.length-1-index];
     
+
 }
 
 console.log(tempArray);
