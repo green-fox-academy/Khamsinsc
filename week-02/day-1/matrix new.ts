@@ -1,4 +1,4 @@
-
+'use strict';
 
 let matrix = function (matrixsize: number) {
     let data = [];
@@ -11,6 +11,9 @@ let matrix = function (matrixsize: number) {
                 data[i][j] = 0;
             }
         }
-    } return data;
+    } return data.forEach(element => {
+        console.log(element.join());
+    });
 }
-console.log(matrix(5));
+
+matrix(5);

@@ -3,8 +3,8 @@
 const canvas = document.querySelector('.main-canvas') as HTMLCanvasElement;
 const ctx = canvas.getContext('2d');
 
-let hiveSize: number = 19,
-    numberOfSides: number = 6,
+let hiveSize: number = 11,
+    numberOfSides: number =6,
     size: number = 10,
     moveDistance: number = size * Math.sqrt(3),
     xCoord: number,

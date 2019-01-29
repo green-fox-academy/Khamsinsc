@@ -33,3 +33,6 @@ function avCandies (abc: object[]){
     return sumAv/abc.length;
 }
 console.log(avCandies(students));
+
+
+

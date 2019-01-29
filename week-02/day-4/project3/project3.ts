@@ -29,7 +29,6 @@ for (let indexL: number = 0; indexL < 21; indexL++) {
         if (Math.abs(indexL + IndexH) % 2 == 1) {
             continue;
         };
-        
         drawTriangle(canvas.width / 2 + IndexH * m / 2, (canvas.height - 22 * h) + indexL * h);
     }
 
