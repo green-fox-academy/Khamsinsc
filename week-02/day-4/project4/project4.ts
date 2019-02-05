@@ -35,5 +35,7 @@ for (let indexL: number = 0; indexL < hiveSize; indexL++) {
     for (let indexC = 0; indexC < hiveSize - Math.abs((indexL + 1) - ((hiveSize + 1) / 2)); indexC++) {
         yCoord = yCoord - moveDistance;
         drawPoly(xCoord, yCoord);
+
+
     }
 }
