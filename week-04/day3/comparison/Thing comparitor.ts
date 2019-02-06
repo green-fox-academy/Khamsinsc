@@ -26,10 +26,10 @@ class Thing implements Comparable {
   }
 }
 
-let thing1 = new Thing('Get milk');
-let thing2 = new Thing('Remove the obstacles');
-let thing3 = new Thing('Stand up');
-let thing4 = new Thing('Eat lunch');
+let thing4 = new Thing('Get milk');
+let thing3 = new Thing('Remove the obstacles');
+let thing1 = new Thing('Stand up');
+let thing2 = new Thing('Eat lunch');
 thing3.complete();
 thing4.complete();
 
