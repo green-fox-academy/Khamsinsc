@@ -1,6 +1,6 @@
 'use strict';
 
-function countLetters(inputString: string) {
+export function countLetters(inputString: string) {
   let noWhiteSpace: string = inputString.replace(/\s/g, '');
   let uniqueString: string[] = noWhiteSpace.split('').filter((v, i, a) => a.indexOf(v) === i);
   let resultObject = {};
