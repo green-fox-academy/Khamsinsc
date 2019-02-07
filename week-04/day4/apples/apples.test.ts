@@ -1,8 +1,7 @@
 'use strict';
-import {test} from 'tape';
 import {getApple} from './apples';
 
-
+let test = require('tape');
 
 test('Print apple', input => {
   const actual = getApple();
