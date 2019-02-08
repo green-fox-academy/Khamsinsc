@@ -8,7 +8,7 @@ const printComLine = () => {
   console.log(fs.readFileSync('comLineArguments.txt', 'utf-8'));
 };
 
-const returnToDoList = () => {
+const printToDoList = () => {
   let toDoContent: string = fs.readFileSync('myToDoList.txt', 'utf-8') || '';
   if (toDoContent === '') {
     console.log('No todos for today! :)');
@@ -22,7 +22,7 @@ const returnToDoList = () => {
 };
 
 const addTask = (input: string) => {
-  input.length > 2 ? fs.appendFile('myToDoList.txt', `${input.slice(input.indexOf(`"`) + 1, input.lastIndexOf(`"`))}*NONE*\r\n`, () => {
+  input.length > 2 && input.indexOf(`"`) !== -1 ? fs.appendFileSync('myToDoList.txt', `${input.slice(input.indexOf(`"`) + 1, input.lastIndexOf(`"`))}*NONE*\r\n`, () => {
     console.log('The task has been added successfully!');
   }) : console.log(`Unable to add: no task provided`);
 };
@@ -60,7 +60,7 @@ const runApp = () => {
     `${requireInputString[Math.floor(Math.random() * 5)]}`
   );
   if (userInput !== 'lemmeout!!!') {
-    userInput === '' ? printComLine() : userInput.slice(0, 2) === '-l' ? returnToDoList() : userInput.slice(0, 2) === `-a` ? addTask(userInput) : userInput.slice(0, 2) === `-r` ? removeNCheckTask(userInput) : userInput.slice(0, 2) === `-c` ? removeNCheckTask(userInput) : argumentError();
+    userInput === '' ? printComLine() : userInput.slice(0, 2) === '-l' ? printToDoList() : userInput.slice(0, 2) === `-a` ? addTask(userInput) : userInput.slice(0, 2) === `-r` ? removeNCheckTask(userInput) : userInput.slice(0, 2) === `-c` ? removeNCheckTask(userInput) : argumentError();
     runApp();
   } else {
     console.log(`Byebye, cya next time!`);
