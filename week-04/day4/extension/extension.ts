@@ -1,23 +1,26 @@
 'use strict';
 
+import { Math } from "es6-shim";
+
 export function add(a: number, b: number): number {
-  return 5;
+  return a+b;
 }
 
 export function maxOfThree(a: number, b: number, c: number): number {
-  if (a > b) {
-    return a;
-  } else {
-    return c;
-  }
+  let array: number[] = [a,b,c];
+  return Math.max(...array);
 };
 
 export function median(pool: number[]): number {
-  return pool[Math.floor((pool.length - 1) / 2)];
+  if (pool.length % 2 === 0) {
+    return (pool[pool.length/2] + pool[pool.length/2 -1])/2;
+  } else { 
+    return pool[(length+1)/2 -1];
+  }  
 }
 
 export function isVowel(character: string): boolean {
-  return ['a', 'u', 'o', 'e', 'i'].some(vowel => vowel === character);
+  return ['a', 'u', 'o', 'e', 'i','A','E','I','O','U'].some(vowel => vowel === character);
 }
 
 export function translate(hungarian: string): string {
