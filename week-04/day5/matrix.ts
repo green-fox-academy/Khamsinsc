@@ -9,14 +9,14 @@ const matrix: number[][] = [
 
 let rotateMatrix = (inputM: number[][]): number[][] => {
   let result: number[][] = [];
-  for (let index = 0; index < matrix.length; index++) {
+  for (let index:number = 0; index < matrix.length; index++) {
     result[index] = [];
-    for (let H = 0; H < matrix.length; H++) {
+    for (let H:number = 0; H < matrix.length; H++) {
       result[index][matrix.length - 1 - H] = matrix[H][index];
     }
   }
   return result;
 }
-rotateMatrix(matrix).forEach(element => {
+rotateMatrix(matrix).forEach((element:number[]):void => {
   console.log(element.join(''));
 });

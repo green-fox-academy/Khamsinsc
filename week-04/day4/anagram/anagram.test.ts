@@ -4,7 +4,7 @@ import { checkAnagram } from './anagram';
 
 let test = require('tape');
 
-test('Checking if two strings are anagrams', t => {
+test('Checking if two strings are anagrams', (t: any): void => {
   const teststring: string[] = ['eat for BSE', 'roast beef'];
   const teststring2: string[] = ['true lady', 'adultery'];
   const teststring3: string[] = ['William Shakespeare', 'I am a weakish speller'];
