@@ -1,0 +1,26 @@
+body {
+  margin: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 1000 px;
+}
+
+.container{
+  display: flex;
+  height: 200px;
+  justify-content: center;  
+}
+
+.green{
+ background: green; 
+ flex-grow: 1;
+}
+
+.yellow{
+  background: yellow;
+ flex-grow: 2;
+}
+
+.purple{
+  background: purple;
+  flex-grow: 1;
+}
