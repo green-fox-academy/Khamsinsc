@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Workshop: CreateElement</title>
+  <style>
+    div#pets {}
+  </style>
+</head>
+
+<body>
+  <div id="pets"></div>
+  <script>
+    const kids = [
+      {
+        'petName': 'Wattled crane',
+        'owner': 'Bryant'
+      },
+      {
+        'petName': 'Devil, tasmanian',
+        'owner': 'Alejandro'
+      },
+      {
+        'petName': 'Mynah, common',
+        'owner': 'Nelie'
+      },
+      {
+        'petName': 'Dolphin, common',
+        'owner': 'Mariele'
+      },
+      {
+        'petName': 'Gray duiker',
+        'owner': 'Maddalena'
+      },
+      {
+        'petName': 'Crab (unidentified)',
+        'owner': 'Lucine'
+      },
+      { 'petName': 'Ant (unidentified)', 'owner': 'Lorianna' },
+      {
+        'petName': 'Bison, american',
+        'owner': 'Tommie'
+      },
+      {
+        'petName': 'Yellow mongoose',
+        'owner': 'Vivyan'
+      },
+      {
+        'petName': 'Carpet snake',
+        'owner': 'Veda'
+      },
+      {
+        'petName': 'Lesser mouse lemur',
+        'owner': 'Isidor'
+      },
+    ];
+
+    let elementMatrix = [];
+    let articleArray = document.querySelector('#pets');
+    kids.forEach((e, i) => {
+      elementMatrix[i] = [];
+      elementMatrix[i][0] = document.createElement('article');
+      elementMatrix[i][1] = document.createElement('h3');
+      elementMatrix[i][2] = document.createElement('p');
+      elementMatrix[i][1].textContent = e.owner;
+      elementMatrix[i][2].textContent = e.petName;
+      elementMatrix[i][0].appendChild(elementMatrix[i][1]);
+      elementMatrix[i][0].appendChild(elementMatrix[i][2]);
+      articleArray.appendChild(elementMatrix[i][0]);
+    })
+
+
+  </script>
+
+  <!-- You can work in the html or in a separate js file. Like:
+    <script>
+      
+      1) Create an <article> element for each kid
+      2) Create a <h3> and a <p> element for each article and append them as a child to the <article>
+          - The H3 should contain the owner's name
+          - The p should contain the pet's name
+      3) Add the article to the pets div.
+    </script>
+    OR
+    <script src="createelement-3.js"></script> -->
+</body>
+
+</html>
