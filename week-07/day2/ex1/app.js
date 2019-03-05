@@ -23,6 +23,7 @@ const factorUntil = (inputNumber) => {
     return inputNumber * factorUntil(inputNumber - 1);
   }
 }
+
 app.use('/assets', express.static('assets'));
 
 
