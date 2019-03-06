@@ -12,7 +12,9 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'try.html'));
 })
 
-
+app.get('/:people', (req, res) => {
+  
+})
 
 
 

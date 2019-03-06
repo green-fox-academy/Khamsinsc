@@ -1,7 +1,8 @@
 'use strict';
+let button = document.querySelector('#btn');
+let input = document.querySelector('input');
 
-window.onload = ()=>{
-  $.get('data/tweets.json', (data)=>{
-    console.log(data);
-  })
-}
+
+$('#btn').click(()=>{
+  console.log(input.value);
+});
