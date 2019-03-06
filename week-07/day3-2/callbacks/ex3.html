@@ -72,17 +72,17 @@
         }
         const interval = setInterval(validateThisDiv(counter), 100);
          */
-    function log10() {
+    function validateTimeout() {
       let i = 0;
-      function repeat() {
+      function repeatThis() {
         if (i > 99) return;
         setTimeout(repeat, 200);
         isPrime(i + 1) === true ? allDivs[i].classList.add('prime') : allDivs[i].classList.add('not-prime');
         i++;
       }
-      repeat();
+      repeatThis();
     }
-    log10();
+    validateTimeout();
 
           // 1: generate 100 divs to the <section> element and add index numbers to it as the element's textContent
 
