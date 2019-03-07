@@ -15,18 +15,14 @@ const connection = mysql.createConnection({
   password: 'password',
   database: 'bookstore'
 })
+
 let catSearch, pubSearch, priceLS, pricerGS;
+
 app.get('/', (req, res) => {
-
   catSearch = 'category' in req.query ? `AND cate_descrip like '%${req.query.category}%'` : ` `;
-
   pubSearch = 'publisher' in req.query ? `AND pub_name like '%${req.query.publisher}%'` : ` `;
-
   priceLS = 'plt' in req.query ? `AND book_price >= ${parseInt(req.query.plt)}` : ` `;
-
   pricerGS = 'pgt' in req.query ? `AND book_price <= ${parseInt(req.query.pgt)}` : ` `;
-  console.log(catSearch);
-
   res.sendFile(path.join(__dirname, '/bookstore.html'));
 })
 
@@ -52,6 +48,3 @@ app.get('/books', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is running at port: ${PORT}`);
 });
-
-/*
-${catSearch} ${pubSearch} ${priceLS}${pricerGS}  */
