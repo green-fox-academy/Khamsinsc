@@ -22,13 +22,19 @@ app.get('/', (req, res) => {
 })
 
 app.get('/books', (req, res) => {
-  let category = category in req.query ? `AND cate_descrip like '%${req.query.category}%'` : ` ` ;
-  let publisher = publisher in req.query? `AND cate_descrip like '%${req.query.category}%'` : ` ` ;
-  let priceLower = plt in req.query;
-  let pricerBiggerpgt in req.query;
-  
-  connection.query(`SELECT book_name, aut_name, cate_descrip, pub_name, book_price from book_mast, author, category, publisher where author.
-  aut_id = book_mast.aut_id AND book_mast.cate_id = category.cate_id AND publisher.pub_id = book_mast.pub_id;`, (err, rows) => {
+  let catSearch = category in req.query ? `AND cate_descrip like '%${req.query.category}%'` : ` `;
+  let pubSearch = publisher in req.query ? `AND pub_name like '%${req.query.publisher}%'` : ` `;
+  let priceLS = plt in req.query ? `AND book_price >= ${req.query.plt}%'` : ` `;
+  let pricerGS = pgt in req.query ? `AND book_price <= ${req.query.pgt}%'` : ` `;
+
+  connection.query(`SELECT 
+  book_name, aut_name, cate_descrip, pub_name, book_price from 
+  book_mast, author, category, publisher
+  where
+  author.aut_id = book_mast.aut_id 
+  AND book_mast.cate_id = category.cate_id
+  AND publisher.pub_id = book_mast.pub_id
+  ${catSearch} ${pubSearch} ${priceLS}${pricerGS};`, (err, rows) => {
       if (err) {
         console.log(err);
         res.status(500).send();
