@@ -15,18 +15,22 @@ const connection = mysql.createConnection({
   password: 'password',
   database: 'bookstore'
 })
-
+let catSearch, pubSearch, priceLS, pricerGS;
 app.get('/', (req, res) => {
+
+  catSearch = 'category' in req.query ? `AND cate_descrip like '%${req.query.category}%'` : ` `;
+
+  pubSearch = 'publisher' in req.query ? `AND pub_name like '%${req.query.publisher}%'` : ` `;
+
+  priceLS = 'plt' in req.query ? `AND book_price >= ${parseInt(req.query.plt)}%'` : ` `;
+
+  pricerGS = 'pgt' in req.query ? `AND book_price <= ${parseInt(req.query.pgt)}%'` : ` `;
+  console.log(catSearch);
 
   res.sendFile(path.join(__dirname, '/bookstore.html'));
 })
 
 app.get('/books', (req, res) => {
-  let catSearch = category in req.query ? `AND cate_descrip like '%${req.query.category}%'` : ` `;
-  let pubSearch = publisher in req.query ? `AND pub_name like '%${req.query.publisher}%'` : ` `;
-  let priceLS = plt in req.query ? `AND book_price >= ${req.query.plt}%'` : ` `;
-  let pricerGS = pgt in req.query ? `AND book_price <= ${req.query.pgt}%'` : ` `;
-
   connection.query(`SELECT 
   book_name, aut_name, cate_descrip, pub_name, book_price from 
   book_mast, author, category, publisher
@@ -34,20 +38,20 @@ app.get('/books', (req, res) => {
   author.aut_id = book_mast.aut_id 
   AND book_mast.cate_id = category.cate_id
   AND publisher.pub_id = book_mast.pub_id
-  ${catSearch} ${pubSearch} ${priceLS}${pricerGS};`, (err, rows) => {
+  ${catSearch} ${pubSearch} ${priceLS}${pricerGS} ;`, (err, rows) => {
       if (err) {
         console.log(err);
         res.status(500).send();
         return;
       }
       res.send(rows);
-      console.log(rows, 'serverside')
     })
-  connection.end();
+  /*  connection.end(); */
 })
 
 app.listen(PORT, () => {
   console.log(`Server is running at port: ${PORT}`);
 });
 
-
+/*
+${catSearch} ${pubSearch} ${priceLS}${pricerGS}  */
