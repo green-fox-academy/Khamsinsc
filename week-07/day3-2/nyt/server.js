@@ -7,7 +7,18 @@ const path = require('path');
 app.use(express.static('static'));
 
 app.get('/',(req,res)=>{  
-  res.sendFile(path.join(__dirname + '/nyt.html'));
+
+  
+  let data = res.json(); 
+  console.log(data);
 })
 
 app.listen(PORT);
+
+const renderHTML = (data) => {
+  for (let i = 0; i < data.length; i++) {
+    content.insertAdjacentHTML('beforeend', `<div class = 'articles'><h>${data[i].headline.main}</h>
+    <p>${data[i].pub_date}</p>
+    <p>${data[i].snippet}</p></div>`);
+  }
+}
