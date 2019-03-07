@@ -22,9 +22,9 @@ app.get('/', (req, res) => {
 
   pubSearch = 'publisher' in req.query ? `AND pub_name like '%${req.query.publisher}%'` : ` `;
 
-  priceLS = 'plt' in req.query ? `AND book_price >= ${parseInt(req.query.plt)}%'` : ` `;
+  priceLS = 'plt' in req.query ? `AND book_price >= ${parseInt(req.query.plt)}` : ` `;
 
-  pricerGS = 'pgt' in req.query ? `AND book_price <= ${parseInt(req.query.pgt)}%'` : ` `;
+  pricerGS = 'pgt' in req.query ? `AND book_price <= ${parseInt(req.query.pgt)}` : ` `;
   console.log(catSearch);
 
   res.sendFile(path.join(__dirname, '/bookstore.html'));
