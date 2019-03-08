@@ -1,0 +1,10 @@
+CREATE TABLE posts(
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `title` VARCHAR(100) NOT NULL DEFAULT '',
+  `url` VARCHAR(255) NOT NULL DEFAULT '',
+  `timestamp` INT NOT NULL DEFAULT '0',
+  `score` INT NOT NULL DEFAULT '0',
+  `owner` VARCHAR(30) DEFAULT null,
+    `vote` INT DEFAULT 0,
+  PRIMARY KEY(`id`)
+)ENGINE = MyISAM DEFAULT CHARSET = latin1 COLLATE = latin1_general_ci;
