@@ -6,8 +6,6 @@ const PORT = 8080;
 const path = require('path');
 app.use(express.json());
 
-
-
 const sumUntil = (inputNumber) => {
   if (inputNumber <= 1) {
     return 1;
@@ -25,7 +23,6 @@ const factorUntil = (inputNumber) => {
 }
 
 app.use('/assets', express.static('assets'));
-
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
@@ -85,7 +82,6 @@ app.post('/dountil/:action', (req, res) => {
     'result': result
   });
 })
-
 
 app.listen(PORT);
 

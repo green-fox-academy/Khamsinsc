@@ -25,21 +25,25 @@ app.get('/hello', (req, res) => {
 
 app.get('/posts', (req, res) => {
   connection.query(`SELECT * FROM posts`, (err, result) => {
-    err ? console.log(err) : res.send(result);
+    err ? console.log(err) : res.send({
+      "posts": result
+    });
   })
 })
 
-
-app.post('/posts'), (req, res) => {
+app.post('/posts', (req, res) => {
+  console.log(req.headers);
+  if ('username' in req.headers === true && req.headers["content-type"] === 'application/json'){
+  
+  }
   console.log(req);
-  res.send(`req`);
+  res.send(req.body);
   /* postFile.posts.forEach(post => {
     connection.query(`SELECT * FROM posts`, (err, result) => {
       err ? console.log(err) : console.log(result);
     })
   }); */
-}
-
+})
 
 app.listen(PORT, () => {
   console.log(`listening PORT ${PORT}`);
