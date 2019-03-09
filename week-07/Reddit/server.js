@@ -34,7 +34,14 @@ app.get('/posts', (req, res) => {
 app.post('/posts', (req, res) => {
   console.log(req.headers);
   if ('username' in req.headers === true && req.headers["content-type"] === 'application/json'){
-  
+    let userNameQuery = ` \`owner\` = ${req.headers.username},`
+    let query = connection.query(`INSERT INTO posts SET ${userNameQuery} ?`, req.body, (err,result)=>{
+     /*  if(err){
+        console.error(err);
+        return;       
+      } */
+      console.log(query.sql,'sqlstring');
+    })
   }
   console.log(req);
   res.send(req.body);
