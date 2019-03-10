@@ -1,0 +1,56 @@
+.linewrapper{
+  display:flex;
+  width:50vw;
+  height:auto;
+}
+
+.left{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-basis: 70%;
+  height:auto;
+  padding:20px;
+  margin-right: 2px; 
+}
+
+.right{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  height:auto;
+}
+
+.odd{
+  background:grey;
+}
+
+.even{
+  background:white;
+}
+
+.ctitle{
+color: white;
+background: black;
+font-weight: bold;
+margin-top:3px;
+}
+
+.name{
+  margin:0;
+}
+
+.contains{
+  margin:0;
+  margin-top:5px;
+}
+
+.price{
+  font-weight: bold;
+}
+
+.titlename{
+  color: purple;
+  margin-bottom:3px;
+}
