@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Workshop: EventListeners</title>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      text-align: center;
+    }
+
+    button {
+      margin: 16px;
+    }
+
+    .img-inspector {
+      margin: 0 auto;
+      width: 500px;
+      height: 320px;
+      border: 1px solid #3a3a3a;
+      background-image: url("./mp.jpg");
+      background-size: 200%;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <button data-action="move" data-direction="up">Up</button>
+    <button data-action="move" data-direction="down">Down</button>
+    <button data-action="move" data-direction="left">Left</button>
+    <button data-action="move" data-direction="right">Right</button>
+    <button data-action="zoom" data-direction="in">Zoom in</button>
+    <button data-action="zoom" data-direction="out">Zoom out</button>
+  </nav>
+  <div class="img-inspector">
+  </div>
+
+  <script>
+
+    let nav = document.querySelector('nav');
+    let image = document.querySelector('.img-inspector');
+    let xCoord = 0;
+    let yCoord = 0;
+    let zoom = 200;
+
+    const moveImage = (inputX, inputY, inputZ) => {
+      image.style['background-position-x'] = `${inputX}px`;
+      image.style['background-position-y'] = `${inputY}px`;
+      image.style['background-size'] = `${inputZ}%`
+      /* image.style('style', `background-position-y: ${inputY}px`); */
+    }
+
+    nav.addEventListener('click', (e) => {
+      if (e.target.getAttribute("data-action") === 'move' || e.target.getAttribute('data-action') === 'zoom') {
+        let direction = e.target.getAttribute("data-direction");
+
+        switch (direction) {
+          case 'up':
+            yCoord -= 10;
+            moveImage(xCoord, yCoord, zoom);
+            break;
+
+          case 'down':
+            yCoord += 10;
+            moveImage(xCoord, yCoord, zoom);
+            break;
+
+          case 'left':
+            xCoord -= 10;
+            moveImage(xCoord, yCoord, zoom);
+            break;
+
+          case 'right':
+            xCoord += 10;
+            moveImage(xCoord, yCoord, zoom);
+            break;
+
+          case 'out':
+            zoom -= 20;
+            moveImage(xCoord, yCoord, zoom);
+            break;
+
+          case 'in':
+            zoom += 20;
+            moveImage(xCoord, yCoord, zoom);
+            break;
+        }
+      }
+    })
+
+
+  </script>
+
+  <!-- You can work in the html or in a separate js file. Like:
+    <script>
+      Here is an image inspector, but the buttons are not implemented yet, that will
+      be your task!
+       - the nav buttons (up, down, left, right) move the background by 10px
+       - the zoom buttons increase/decrease the image by 20%
+       - attach only two event listeners to the nav element
+         - one for navigation
+         - one for zooming
+    </script>
+    OR
+    <script src="bubbling.js"></script> -->
+</body>
+
+</html>
