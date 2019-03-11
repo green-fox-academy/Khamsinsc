@@ -27,3 +27,4 @@ const renderHTML = (data) => {
       </tr>`);
   }
 }
+ 

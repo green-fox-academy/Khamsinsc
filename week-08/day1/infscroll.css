@@ -1,4 +1,10 @@
 .randombox{
   height: 200px;
-  width: 200px;
+  width: 200px;  
+}
+
+.wrapper{
+  height:80vh;
+  width:80vw;  
+  overflow: scroll;
 }
