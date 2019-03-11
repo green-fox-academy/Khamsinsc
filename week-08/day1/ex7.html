@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Click 3 Times</title>
+</head>
+
+<body>
+  <button>Click Me !</button>
+  <p></p>
+
+  <script>
+    let button = document.querySelector('button');
+
+    let p = document.querySelector('p');
+
+    button.addEventListener('click', (e) => {
+      if (e.timeStamp >= 5000) {
+        if (e.detail === 3) {
+          p.textContent = `5 seconds elapsed and clicked 3 times`;
+        }
+      } if (e.timeStamp < 5000) {
+        button.disabled = true;
+      }
+    });
+  </script>
+</body>
+
+</html>
