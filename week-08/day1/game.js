@@ -8,7 +8,7 @@ let lollydisp = document.querySelector('.lollypops');
 let lollypopCount = 3;
 let candyCount = 0;
 let speed = 0;
-production.textContent = lollypopCount;
+production.textContent = Math.round(lollypopCount / 10);
 
 createCandy.addEventListener('click', () => {
   candyCount++;
@@ -20,17 +20,17 @@ buyLolly.addEventListener('click', (e) => {
   lollydisp.textContent += '🍭';
   candyCount -= 10;
   candies.textContent = candyCount;
-  production.textContent = lollypopCount;
+  production.textContent = speed;
 })
 
 let candyfact = setInterval(() => {
-  speed = lollypopCount;
+  speed = Math.round(lollypopCount / 10);
   candyCount += speed;
   candies.textContent = candyCount;
 }, 1000);
 
-makeRain.addEventListener('click',(e)=>{
+makeRain.addEventListener('click', (e) => {
   speed = speed * 10;
-  lollypopCount = speed;
+  lollypopCount = speed * 10;
   production.textContent = speed;
 })
