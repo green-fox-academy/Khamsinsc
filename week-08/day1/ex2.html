@@ -13,7 +13,18 @@
     </ul>
     <button>How many items are in the list?</button>
     <p class="result">dunno :(</p>
-
+    <script>
+    let button = document.querySelector('button');
+    let list = document.querySelectorAll('li');
+    let result = document.querySelector('.result');
+    console.log(list);
+    button.addEventListener('click',(e)=>{
+      result.textContent = `There are ${list.length} elements in the list`;
+    })
+    
+    
+    
+    </script>
     <!-- You can work in the html or in a separate js file. Like:
     <script>
       On the click of the button,
