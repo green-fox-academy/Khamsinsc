@@ -41,8 +41,7 @@ body{
   padding:20px;
   justify-content: space-around;
   justify-items: center;
-  background:rgb(221, 221, 221);
-  
+  background:rgb(221, 221, 221);  
 }
 
 .textbox{
@@ -73,6 +72,5 @@ justify-content: space-between;
   background:grey;
   width:99%;
   height:50px;
-  margin-top: 2%;
-  
+  margin-top: 2%;  
 }

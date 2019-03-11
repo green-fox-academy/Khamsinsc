@@ -43,7 +43,6 @@
   </div>
 
   <script>
-
     let nav = document.querySelector('nav');
     let image = document.querySelector('.img-inspector');
     let xCoord = 0;
@@ -53,49 +52,41 @@
     const moveImage = (inputX, inputY, inputZ) => {
       image.style['background-position-x'] = `${inputX}px`;
       image.style['background-position-y'] = `${inputY}px`;
-      image.style['background-size'] = `${inputZ}%`
-      /* image.style('style', `background-position-y: ${inputY}px`); */
+      image.style['background-size'] = `${inputZ}%`;
     }
 
     nav.addEventListener('click', (e) => {
-      if (e.target.getAttribute("data-action") === 'move' || e.target.getAttribute('data-action') === 'zoom') {
+      if (e.target.getAttribute("data-action") === 'move' || e.target.getAttribute("data-action") === 'zoom') {
         let direction = e.target.getAttribute("data-direction");
 
         switch (direction) {
           case 'up':
             yCoord -= 10;
-            moveImage(xCoord, yCoord, zoom);
             break;
 
           case 'down':
             yCoord += 10;
-            moveImage(xCoord, yCoord, zoom);
             break;
 
           case 'left':
             xCoord -= 10;
-            moveImage(xCoord, yCoord, zoom);
             break;
 
           case 'right':
             xCoord += 10;
-            moveImage(xCoord, yCoord, zoom);
             break;
 
           case 'out':
             zoom -= 20;
-            moveImage(xCoord, yCoord, zoom);
             break;
 
           case 'in':
             zoom += 20;
-            moveImage(xCoord, yCoord, zoom);
             break;
         }
+        moveImage(xCoord, yCoord, zoom);
       }
     })
-
-
   </script>
 
   <!-- You can work in the html or in a separate js file. Like:
