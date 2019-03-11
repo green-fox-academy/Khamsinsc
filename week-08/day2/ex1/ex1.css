@@ -1,0 +1,23 @@
+body{
+  background: skyblue;
+  margin:0;
+  padding:0;
+  display: flex;
+  min-height: 90vh;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+table{
+background:white;
+}
+
+tbody>tr:nth-child(odd){
+  background: silver;
+}
+ 
+thead>tr{
+  color:white;
+  background:black;
+}
