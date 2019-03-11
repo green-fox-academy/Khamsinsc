@@ -1,11 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dispatch event</title>
 </head>
+
 <body>
   <!-- 
     The rendered div will change its content if the user clicks on it.
@@ -16,12 +17,19 @@
    -->
   <button>Fire event on the div</button>
   <div>Event is not fired yet</div>
-  
+
   <script type="text/javascript">
-    document.querySelector('div').addEventListener('click', (event) => {
+    let button = document.querySelector('button');
+    let div = document.querySelector('div');
+    console.log(div);
+    div.appendChild(button);
+
+    let event = document.querySelector('div').addEventListener('click', (event) => {
       event.target.innerText = 'Yeah, click event is fired!';
       console.log(event);
     });
+
   </script>
 </body>
+
 </html>
