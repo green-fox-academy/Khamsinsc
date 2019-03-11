@@ -4,17 +4,45 @@
 <head>
   <meta charset="utf-8">
   <title><%=title%></title>
+  <link rel="stylesheet" href="/static/style.css">
 </head>
 
 <body>
   <h1>Cocktails</h1>
-  <p><%=alcoholList%></p>
+  <span class="titlename">ALL</span>
+  <%alcoholList.forEach(e=>{%>
+  <span class='titlename'> <%=e.toUpperCase()%> </span>
+  <%})%>
 
-  <% allDrinks.forEach(e=>{ %>
-  <p><%=e.name%><%- e.isAlcoholic === true? null : ' (non-alchoholic)' %> </p>
-  <p><%=e.price%></p>
-  <p><%=e.contains%></p>
+
+  <div class="linewrapper">
+    <div class="left ctitle">Name</div>
+    <div class="right ctitle">Price</div>
+  </div>
+  <% allDrinks.forEach((e,i)=>{ %>
+  <%if (i%2 === 0){%>
+  <div class="linewrapper">
+    <div class="left odd">
+      <h3 class='name'><%=e.name%><%- e.isAlcoholic === true? null : ' (non-alchoholic)' %> </h3>
+      <p class='contains'><%=e.contains%></p>
+    </div>
+    <span class="right odd">
+      <p class='price'><%=e.price%> FT</p>
+    </span>
+  </div> <%} else {%>
+
+  <div class="linewrapper">
+    <div class="left even">
+      <h3 class='name'><%=e.name%><%- e.isAlcoholic === true? null : ' (non-alchoholic)' %> </h3>
+      <p class='contains'><%=e.contains%></p>
+    </div>
+    <span class="right even">
+      <p class='price'><%=e.price%> FT</p>
+    </span>
+  </div>
+  <%}%>
   <% }) %>
+
 </body>
 
 </html>

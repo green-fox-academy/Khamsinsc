@@ -32,8 +32,9 @@ app.set('view engine', 'ejs');
 // home page
 app.get('/', (req, res) => {
   let reqType = req.query.alcohol;
-  let showList = reqType == undefined ? cocktails :
-    filteredList[alcoholList.indexOf(reqType)];
+  let showList = alcoholList.some(e => e === reqType) === true ? 
+  filteredList[alcoholList.indexOf(reqType)] :
+    cocktails;
 
   // render `home.ejs`
   res.render('home', {

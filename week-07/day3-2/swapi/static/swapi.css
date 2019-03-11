@@ -1,0 +1,23 @@
+#wrapper{  
+  display:flex;
+  width: 50vw;
+  min-height: 300px;
+  height:auto;
+  background:silver;
+}
+
+.name{
+  list-style: none;  
+}
+
+.name:hover{
+  background:red;
+}
+
+.movielist{
+  list-style: none;
+}
+
+.movieinfo:hover{
+  background: red;
+}
