@@ -22,9 +22,11 @@ for (let index = 0; index < genRandom(); index++) {
 }
 
 const expandScroll = (direction) => {
-  for (let index = 0; index < genRandom(); index++) {
+  let randomNumber = genRandom();
+  for (let index = 0; index < randomNumber; index++) {
     contentBox.insertAdjacentHTML(direction, `<div class="randombox" style="background-color:${getRandomColor()}" ></div>`);
   }
+  return randomNumber;
 }
 
 contentBox.addEventListener('scroll', (e) => {
@@ -35,7 +37,9 @@ contentBox.addEventListener('scroll', (e) => {
 
  if (e.target.scrollTop <= 0) {
     console.log(e);
-    expandScroll('afterbegin');
+    let number = expandScroll('afterbegin') * 200;
+
+    contentBox.scrollTo(0,number);
  } 
   console.log(e);
   console.log(contentBox.scrollTop);
