@@ -15,10 +15,93 @@ align-items: center;
 justify-content: center;
 }
 
-.buttons{
-  padding:0px;
+.label{
+  padding: none;
+  background:silver;
+  margin:5px;
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  border:none;  
+  width:50px;
+  overflow:hidden;
 }
 
 .fa-caret-right{
   align-self: flex-start;
 }
+
+.fa-trash-alt:nth-child(1){
+  color:red;
+}
+
+.fa-trash-alt:nth-child(2){
+  color: white;  
+}
+
+.fa-trash-alt:nth-child(3){
+  color:green;
+}
+
+button.buttons{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin:0;
+  padding:0;
+  border: none;
+  height:50px;
+  width:50px;
+  position: relative;
+}
+
+button.buttons:nth-child(1){
+    background:black;
+  }
+button.buttons:nth-child(2){
+  background:black;
+    height:200px;
+  }
+button.buttons:last-child{
+  background:black;
+  }
+
+  #thisbutton{
+    background:black;
+    outline: 1px black;
+  }    
+
+  #thisbutton2{
+    background:black;
+  }    
+
+  
+  #thisbutton3{
+    background:white;
+  }    
+
+.hidden1{
+  background:green;
+}
+
+.hidden2{
+  background:white;
+}
+
+.hidden3{
+  background:black;
+  color:white;
+}
+
+span{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  width:80px;
+  border: 0px;
+  padding:0;
+  margin:0;
+  border-left: 1px black;
+  padding-right: 20px;
+}
+
