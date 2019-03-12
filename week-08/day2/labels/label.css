@@ -27,6 +27,11 @@ justify-content: center;
   overflow:hidden;
 }
 
+.label:hover{
+  width:200px;
+  transition: 1000ms;
+}
+
 .fa-caret-right{
   align-self: flex-start;
 }
