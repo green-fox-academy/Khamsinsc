@@ -8,22 +8,21 @@ const PORT = 8080;
 app.use(express.json());
 
 app.use(express.json());
-app.use('/assets', express.static('assets'));
+app.use('/static', express.static('static'));
 
-app.get('/hello', (req, res) => {
-  res.send(`Hello world!`);
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname + '/newsletter.html'));
 })
 
-app.get('/posts', (req, res) => {
+app.post('/signup', (req, res) => {
+
+  res.(`<html>
+    <body>
+    <h1>Thanks${req.body.username}, we will send updates to ${req.body.email}</h1> 
+    </body>
+    </html>`);
 
 })
-
-app.post('/posts', (req, res) => {
-
-  res.json(req.body);
-
-})
-
 
 app.listen(PORT, () => {
 
