@@ -14,13 +14,11 @@ app.get('/', (req, res) => {
 })
 
 app.post('/signup', (req, res) => {
- console.log(req.body);
   res.end(`
     <h1>Thanks ${req.body.username}, we will send updates to ${req.body.email}</h1> 
     `);
-
 })
 
 app.listen(PORT, () => {
-
+  console.log(`listening to port: ${PORT}`);
 })
