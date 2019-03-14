@@ -19,6 +19,11 @@ const connection = mysql.createConnection({
 app.use(express.json());
 app.use('/assets', express.static('assets'));
 
+
+app.get('/', (req, res) => {
+  res.sendFile(__dirname, '/reddit.html');
+})
+
 app.get('/hello', (req, res) => {
   res.send(`Hello world!`);
 })
