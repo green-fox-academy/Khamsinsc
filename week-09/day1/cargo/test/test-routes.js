@@ -2,36 +2,77 @@
 
 const test = require('tape');
 const request = require('supertest');
-const app = require('../route');
+const app = require('../routes');
 
 test('arrow endpoint', (t) => {
 
   request(app)
-    .get('/yondu?distance=20&time=2')
+    .get('/rocket')
     .expect('Content-Type', /json/)
     .expect(200)
     .end(function (err, res) {
       let expected = {
-        "distance": 20,
-        "time": 2,
-        "speed": 10
+        "caliber25": 0,
+        "caliber30": 0,
+        "caliber50": 0,
+        "shipstatus": "empty",
+        "ready": false
       }
       t.error(err, 'No error');
       t.same(res.body, expected,
-        `With giving a parameter the status is ok
-      and the given respone is the same as expected`);
+        `checking ship's overall status`);
+
     });
 
   request(app)
-    .get('/yondu')
-    .expect('Content-Type', /text/)
+    .get('/rocket/fill?caliber=.50&amount=0')
+    .expect('Content-Type', /json/)
+    .expect(200)
+    .end(function (err, res) {
+      let expected = {
+        "received": ".50",
+        "amount": '0',
+        "shipstatus": "empty",
+        "ready": false
+      }
+
+      t.error(err, 'No error');
+      t.same(res.body, expected,
+        `check for status after fill and empty if 0 amount`);
+    });
+
+  request(app)
+    .get('/rocket/fill?caliber=.30&amount=5000')
+    .expect('Content-Type', /json/)
+    .expect(200)
+    .end(function (err, res) {
+
+      t.error(err, 'No error');
+      t.same(res.body.shipstatus, '40%',
+        `checking shipstatus 40%`);
+      t.same(res.body.ready, false, 'check shipready false when not 100% loaded');
+    });
+
+  request(app)
+    .get('/rocket/fill?caliber=.25&amount=7500')
+    .expect('Content-Type', /json/)
+    .expect(200)
+    .end(function (err, res) {
+
+      t.error(err, 'No error');
+      t.same(res.body.shipstatus, 'full',
+        `checking shipstatus full`);
+      t.same(res.body.ready, true,
+        `check ready true if 100% loaded`);
+    });
+
+  request(app)
+    .get('/rocket/fill?caliber=.25')  
     .expect(500)
     .end(function (err, res) {
-      let expected = 'Please provide valid parameters for calculation'
+      let expected = 'Please provide the proper data for filling';
       t.error(err, 'No error');
-      t.same(res.text, expected,
-        `without giving a parameter the status is not ok
-      and the given error respone is the same as expected`);
-      t.end();
+      t.same(res.text, expected);
     });
+  t.end();
 });

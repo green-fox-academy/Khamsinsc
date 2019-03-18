@@ -11,7 +11,7 @@ const shipEquipments = {
 }
 
 const checkStatus = () => {
-  ammo = shipEquipments.caliber25 +
+  let ammo = shipEquipments.caliber25 +
     shipEquipments.caliber30 +
     shipEquipments.caliber50;
 
@@ -20,7 +20,7 @@ const checkStatus = () => {
       ammo > 12500 ? 'overloaded' :
         `${ammo / 12500 * 100}%`;
 
-  shipEquipments.ready = shipEquipments === 'full' ? true : false;
+  shipEquipments.ready = shipEquipments.shipstatus === 'full' ? true : false;
 }
 
 app.get('/rocket', (req, res) => {
@@ -29,7 +29,7 @@ app.get('/rocket', (req, res) => {
 
 app.get('/rocket/fill', (req, res) => {
   if ('caliber' in req.query && 'amount' in req.query) {
-    caliber = req.query.caliber;
+    let caliber = req.query.caliber;
     switch (caliber) {
       case '.25':
         shipEquipments.caliber25 += parseFloat(req.query.amount);
