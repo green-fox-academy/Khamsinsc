@@ -21,7 +21,7 @@ app.use('/assets', express.static('assets'));
 
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname, '/reddit.html');
+  res.sendFile(path.join(__dirname, '/reddit.html'));
 })
 
 app.get('/hello', (req, res) => {
@@ -94,24 +94,24 @@ app.delete('/posts/:id', (req, res) => {
 })
 
 
-app.put('/posts/:id', (req,res)=>{
+app.put('/posts/:id', (req, res) => {
   if ('username' in req.headers === true && req.headers["content-type"] === 'application/json') {
     let userNameQuery = ` \`owner\` = ${req.headers.username}`
     connection.query(`update posts
     SET ? WHERE id = ${req.params.id} AND ${userNameQuery}`, req.body, (err, updateResult) => {
-      if (err) {
-        console.error(err);
-        return;
-      }
-      connection.query(`SELECT * FROM posts WHERE id = ${req.params.id} AND ${userNameQuery}`, (err, result) => {
         if (err) {
           console.error(err);
           return;
-        } else {
-          res.json(result);
         }
+        connection.query(`SELECT * FROM posts WHERE id = ${req.params.id} AND ${userNameQuery}`, (err, result) => {
+          if (err) {
+            console.error(err);
+            return;
+          } else {
+            res.json(result);
+          }
+        })
       })
-    })
   }
 })
 

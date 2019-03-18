@@ -1,3 +1,48 @@
-#headerContainer{
-  background-image: 'https://wallpaperstock.net/starcraft-2-wallpapers_20853_1600x1200.jpg';
+body{
+
+  padding:0;
+  margin:0;
 }
+
+#header{
+  display: block;
+  position: sticky;
+  flex-direction: row;
+  height: 150px;
+  min-width: 260px;
+  background: url(https://coverfiles.alphacoders.com/779/77930.jpg) center top / cover no-repeat rgb(118, 123, 188);
+  background-position: center top; 
+  margin: 0px auto;  
+}
+
+#title{
+  color:white;
+  position:absolute;
+  align-self: center;
+  margin:50px;
+}
+
+.bodyWrapper{
+  display: flex;
+  min-height: 500px;
+  width: 98%;
+  background:seashell;
+  margin:1%;
+  padding: 30px;  
+  justify-content: center;
+}
+
+.postContainer{
+  width: 630px;
+  min-height:500px;
+  background:grey;
+  margin-right: 15px;
+}
+
+.sidebar{
+  width: 300px;
+  height:350px;
+  background:white;
+  position: sticky;
+}
+

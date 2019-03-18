@@ -37,7 +37,7 @@ contentBox.addEventListener('scroll', (e) => {
 
  if (e.target.scrollTop <= 0) {
     console.log(e);
-    let number = expandScroll('afterbegin') * 200;
+    let number = expandScroll('afterbegin') * 200;  
 
     contentBox.scrollTo(0,number);
  } 
@@ -46,3 +46,5 @@ contentBox.addEventListener('scroll', (e) => {
   console.log(contentBox.clientHeight);
   console.log(contentBox.scrollHeight);
 })
+
+addEventListener

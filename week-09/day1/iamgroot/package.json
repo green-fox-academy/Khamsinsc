@@ -1,0 +1,24 @@
+{
+  "name": "iamgroot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "superset": "^1.0.1",
+    "tape": "^4.10.1"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "nodemon": "^1.18.10",
+    "supertest": "^4.0.2"
+  }
+}
