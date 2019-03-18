@@ -5,8 +5,7 @@ const app = express();
 const path = require('path');
 const PORT = 8080;
 
-app.use(express.json());
-
+app.use(express.urlencoded());
 app.use(express.json());
 app.use('/static', express.static('static'));
 
@@ -15,15 +14,11 @@ app.get('/', (req, res) => {
 })
 
 app.post('/signup', (req, res) => {
-
-  res.(`<html>
-    <body>
-    <h1>Thanks${req.body.username}, we will send updates to ${req.body.email}</h1> 
-    </body>
-    </html>`);
-
+  res.end(`
+    <h1>Thanks ${req.body.username}, we will send updates to ${req.body.email}</h1> 
+    `);
 })
 
 app.listen(PORT, () => {
-
+  console.log(`listening to port: ${PORT}`);
 })
