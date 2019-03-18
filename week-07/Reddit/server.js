@@ -6,7 +6,6 @@ const path = require('path');
 const PORT = 8080;
 const mysql = require('mysql');
 const fs = require('fs');
-let postFile = JSON.parse(fs.readFileSync('./assets/posts.json', 'utf-8'));
 app.use(express.json());
 
 const connection = mysql.createConnection({
@@ -38,7 +37,7 @@ app.get('/posts', (req, res) => {
 
 app.post('/posts', (req, res) => {
   if ('username' in req.headers === true && req.headers["content-type"] === 'application/json') {
-    let userNameQuery = ` \`owner\` = ${req.headers.username},`
+    let userNameQuery = ` \`owner\` = '${req.headers.username}',`
     connection.query(`INSERT INTO posts SET ${userNameQuery} ?`, req.body, (err, insertResult) => {
       if (err) {
         console.error(err);
@@ -118,3 +117,5 @@ app.put('/posts/:id', (req, res) => {
 app.listen(PORT, () => {
   console.log(`listening PORT ${PORT}`);
 })
+
+module.exports = app;
