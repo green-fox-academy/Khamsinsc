@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const printTimedOut = ()=>{
   console.log('TIMED OUT!');  
