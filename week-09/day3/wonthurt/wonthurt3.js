@@ -7,10 +7,11 @@ let promise = new Promise((resolve, reject) => {
     reject(new Error('REJECTED!'))
   }, 300);
 })
+  .then(undefined, error => onReject(error));
 
 const onReject = (error) => {
-  error.then(value => console.log(value), reason => console.log(reason.message));
+  console.log(error.message);
 };
 
-onReject(promise);
+
 
