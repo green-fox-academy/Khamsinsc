@@ -1,0 +1,51 @@
+*{
+  padding:0;
+  margin:0;
+}
+
+.headerContainer{
+  display: grid;
+  background: purple;
+  position: fixed;
+  width: 100vw;
+  height: 70px;
+  padding: 10px;
+  grid-column-gap: 15px;
+  align-items: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr 50%;
+  z-index: 2;
+}
+
+.headerItems{
+  background-color: aqua;
+  height: 30px;
+}
+
+.bodyContainer{  
+  position: relative;
+  top: 95px;
+  display: grid;
+  height: 650px;
+  width: 90vw;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 7fr 1fr;
+  left: 5vw;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
+.green{
+  background: greenyellow;
+  grid-column: 1/3;
+}
+
+.yellow{
+  background: yellow;
+  grid-column: 3/4;
+}
+
+.gray{
+  background-color: darkgrey;
+  grid-column: 1/4;
+}
+
