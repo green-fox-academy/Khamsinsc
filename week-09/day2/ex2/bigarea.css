@@ -1,0 +1,41 @@
+*{
+  margin:0;
+  padding:0;
+}
+
+
+body {
+  margin: 0;
+  height: 90vh;
+  background: darkblue;
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.container{
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  height: 700px;
+  gap: 10px;
+}
+
+.purple{
+  background: indigo;
+}
+
+.green{
+  display: flex;
+  background-color: lawngreen;
+  grid-row: 1/3;
+  grid-column: 2/4;
+  justify-content: center;
+  align-items: center;
+}
+
+.yellow{
+  height: 70%;
+  width:70%;
+  background:yellow;
+}
