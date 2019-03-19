@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Joke Fetcher</title>
+</head>
+
+<body>
+
+  <div class="container"></div>
+
+  <button class="button">Gimme a joke</button>
+
+</body>
+
+<script>
+
+  const URL = 'http://api.icndb.com/jokes/random';
+
+  document.querySelector('.button').addEventListener('click', () => {
+    fetch(URL)
+      .then(handleErrors)
+      .then(appendToHtml)
+      .catch(error => console.error(error.message));
+  })
+
+  const handleErrors = (response) => {
+    if (!response.ok) throw Error(response.status);
+    return response.json();
+  }
+
+  const appendToHtml = (data) => {
+    let joke = data.value.joke;
+    document.querySelector('.container').innerHTML += joke + '<br>';
+  }
+
+</script>
+
+</html>
