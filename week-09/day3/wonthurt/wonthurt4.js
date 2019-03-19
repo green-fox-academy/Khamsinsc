@@ -2,13 +2,15 @@
 
 require('es6-promise');
 
-let promiseOne = new Promise(
-  fullfill => fullfill('I FIRED'),
-  reject => reject(new Error('I DID NOT FIRE'))
-);
+let promiseOne = new Promise((fulfill, reject) => {
+  fulfill('I FIRED');
+  reject(Error('I DID NOT FIRE'))
+});
 
-const onRejected = (error)=>{
-  
+
+const onRejected = (error) => {
+  console.log(error.message);
 }
 
-promiseOne.then(value => console.log(value));
+promiseOne.then(console.log, onRejected
+);
