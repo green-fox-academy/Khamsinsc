@@ -74,7 +74,7 @@ app.post('/api/questions', (req, res) => {  //insert into database with data var
         data.answers.forEach((element) => {
           connection.query(
             `INSERT INTO answers (question_id, answer, is_correct)
-            VALUES (${ansOne["insertId"]}, '${element.text}', '${element.is_correct}');`,
+            VALUES (${ansOne["insertId"]}, '${element.answer}', '${element.is_correct}');`,
             (err, ansTwo) => {
               if (err) {
                 console.error(err);
