@@ -6,20 +6,8 @@ let container = document.querySelector('.container');
 let scoreTag = document.querySelector('.score');
 let score = 0;
 
-
 window.onload = () => {
   fetchQuestion();
-}
-
-const renderHTML = (data) => {
-  scoreTag.textContent = `SCORE: ${score}`;
-  questionTag.textContent = data.question;
-  answerTags.forEach((e, i) => {
-    e.textContent = data.answers[i][`answer`];
-    e.className = '';
-    e.classList.add(data.answers[i]['is_correct'] === 0 ? 'wrong' : 'correct');
-    e.style.color = 'black';
-  })
 }
 
 const addClickEvent = () => {
@@ -54,4 +42,15 @@ const fetchQuestion = () => {
       addClickEvent();
     })
     .catch(error => console.error(error.message));
+}
+
+const renderHTML = (data) => {
+  scoreTag.textContent = `SCORE: ${score}`;
+  questionTag.textContent = data.question;
+  answerTags.forEach((e, i) => {
+    e.textContent = data.answers[i][`answer`];
+    e.className = '';
+    e.classList.add(data.answers[i]['is_correct'] === 0 ? 'wrong' : 'correct');
+    e.style.color = 'black';
+  })
 }
