@@ -110,12 +110,6 @@ const getRandomIndex = (length) => {
 }
 
 const processQuestion = (question, answers) => {
-  answers.forEach((element, index) => {
-    Object.defineProperty(element, `answer_${index}`,
-      Object.getOwnPropertyDescriptor(element, 'answer'));
-    delete element['answer'];
-  });
-
   const responseObject = {
     'id': question.id,
     'question': question.question,
