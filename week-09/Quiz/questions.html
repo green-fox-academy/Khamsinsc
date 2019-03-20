@@ -19,20 +19,27 @@
   <h1>Create a New Question</h1>
   <div class="newQuestionContainer">
     <form action="">
-      <input type="text" placeholder="Type your question here"> <br>
+
+      <input type="text" placeholder="Type your question here" name="question" required/> <br>
+
       <h2>Answers</h2><br>
+
       <label for="a1">#1</label>
-      <input type="text" name="a1" placeholder="Type your answer here">
-      <input type="radio" name="iscorrect" id="iscorrect"> <br><br>
+      <input type="text" name="a1" placeholder="Type your answer here" required/>
+      <input type="radio" value='0' name="ziscorrect" class="iscorrect" required/> <br><br>
+
       <label for="a2">#2</label>
-      <input type="text" name="a2" placeholder="Type your answer here">
-      <input type="radio" name="iscorrect" id="iscorrect"><br><br>
+      <input type="text" name="a2" placeholder="Type your answer here" required/>
+      <input type="radio" value='1' name="ziscorrect" class="iscorrect" required/><br><br>
+
       <label for="a3">#3</label>
-      <input type="text" name="a3" placeholder="Type your answer here">
-      <input type="radio" name="iscorrect" id="iscorrect"><br><br>
+      <input type="text" name="a3" placeholder="Type your answer here" required/>
+      <input type="radio" value='2' name="ziscorrect" class="iscorrect" required/><br><br>
+
       <label for="a4">#4</label>
-      <input type="text" name="a4" placeholder="Type your answer here">
-      <input type="radio" name="iscorrect" id="iscorrect"><br><br>
+      <input type="text" name="a4" placeholder="Type your answer here" required/>
+      <input type="radio" value='3' name="ziscorrect" class="iscorrect" required/><br><br>
+
       <button type="submit">Submit</button>
     </form>
   </div>
