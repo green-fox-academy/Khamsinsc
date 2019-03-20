@@ -1,10 +1,13 @@
 'use strict';
 
-const fetch = require('node-fetch');
+let URL = '/api/game';
+let questionTag = document.querySelector('.question');
+let answerTags = document.querySelectorAll('.answerbuttons');
 
-let URL = 'http://localhost:8000/api/game';
 
-fetch(URL)
-  .then(response => response.json())
-  .then(data => console.log(data));
-
+window.onload = () => {
+  fetch(URL)
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error(error.message));
+}

@@ -9,7 +9,7 @@ const connection = database.connection;
 
 app.use(express.json());
 app.use(express.urlencoded());
-app.use(express.static('assets'));
+app.use('/assets', express.static('assets'));
 
 app.get('/game', (req, res) => {
   res.sendFile(path.join(__dirname, './index.html'));
@@ -27,8 +27,7 @@ app.get('/api/game', (req, res) => {//return a random question with its answers 
         console.error(err);
       } else if (rows1.length > 0) {
         let questionQuantity = rows1.length;
-        let randomQuestion = rows1[getRandomIndex(questionQuantity)];
-        console.log(randomQuestion);
+        let randomQuestion = rows1[getRandomIndex(questionQuantity)];        
         connection.query(
           `SELECT * FROM answers
           WHERE question_id = '${randomQuestion['id']}';`,
@@ -68,8 +67,7 @@ app.post('/api/questions', (req, res) => {  //insert into database with data var
     `INSERT INTO questions (question)
     VALUES ('${data.question}');`
     ,
-    (err, ansOne) => {
-      console.log(ansOne, typeof ansOne, ansOne.insertId);
+    (err, ansOne) => {      
       if (err) {
         console.error(err);
       } else {
